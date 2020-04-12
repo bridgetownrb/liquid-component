@@ -40,3 +40,14 @@ props:
   {% endif %}
 </div>
 ```
+
+### Prop Warnings
+
+If a prop is supplied to a component in the wrong format, or if it's missing when it's required, then the component parser will emit a Liquid warning. By default it won't interrupt the overall rendering of Liquid templates (but that is configurable). The goal is simply to catch errors at development time, not frustrate the process of generating a working site.
+
+## TODO
+
+* Finish fleshing out prop types
+* Describe content processors (HTML, Markdown, JSON, YAML, etc.)
+* Investigate multiple "content areas" ([see github/view_component for inspiration](https://github.com/github/view_component/blob/master/README.md#content-areas))
+* How to handle sidecar assets for components (related JS and CSS files)
