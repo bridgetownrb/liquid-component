@@ -3,14 +3,14 @@ Smart components for the Liquid templating language
 
 ## Spec in progress
 
-Working code is on its way, but meanwhile this is a quick attempt to document a possible spec for Liquid Components.
+Working code is on its way, but meanwhile this is a quick attempt to document a possible spec for Liquid Components. It builds upon the brand new `render` tag functionality but adds block mode, Markdown formatting, and validation.
 
 ### Example
 
 ```liquid
-{% component cards/widget title="I'm a Card" show_footer=false theme=page.theme %}
+{% rendercontent "cards/widget", title: "I'm a Card", show_footer: false, theme: page.theme %}
 I'm the body of the card. I support **Markdown** _formatting!_
-{% endcomponent %}
+{% endrendercontent %}
 ```
 
 ### Defining a Component
@@ -19,35 +19,31 @@ I'm the body of the card. I support **Markdown** _formatting!_
 ---
 name: Widget Card
 description: Displays a card about a widget that you can open.
-content_processor: markdown
-props:
+variables:
   -
     title: string
     show_footer?: boolean
     theme?: object
 ---
 
-{%- assign theme = "default" -%}
-{%- if props.theme -%}
-  {%- assign theme = props.theme.cards -%}
-{%- endif %}
-
-<div class="widget card {{ theme }}">
-  <div class="card-title">{{ props.title }}</div>
-  <div class="card-body">{{ props.content }}</div>
-  {% if props.show_footer %}
+<div class="widget card {{ theme | default: "default" }}">
+  <div class="card-title">{{ title }}</div>
+  <div class="card-body">{{ content }}</div>
+  {% if show_footer %}
     <div class="card-footer"><button>Open the Widget</button></div>
   {% endif %}
 </div>
 ```
 
-### Prop Warnings
+### Variable Warnings
 
-If a prop is supplied to a component in the wrong format, or if it's missing when it's required, then the component parser will emit a Liquid warning. By default it won't interrupt the overall rendering of Liquid templates (but that is configurable). The goal is simply to catch errors at development time, not frustrate the process of generating a working site.
+If a variable is supplied to a component in the wrong format, or if it's missing when it's required, then the component parser will emit a Liquid warning. By default it won't interrupt the overall rendering of Liquid templates (but that is configurable). The goal is simply to catch errors at development time, not frustrate the process of generating a working site.
 
 ## TODO
 
-* Finish fleshing out prop types
+* Finish fleshing out variable types
 * Describe content processors (HTML, Markdown, JSON, YAML, etc.)
 * Investigate multiple "content areas" ([see github/view_component for inspiration](https://github.com/github/view_component/blob/master/README.md#content-areas))
 * How to handle sidecar assets for components (related JS and CSS files)
+* Testing strategy
+* Component previews
