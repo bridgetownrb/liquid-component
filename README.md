@@ -20,10 +20,10 @@ I'm the body of the card. I support **Markdown** _formatting!_
 name: Widget Card
 description: Displays a card about a widget that you can open.
 variables:
-  -
-    title: string
-    show_footer?: boolean
-    theme?: object
+  title: string
+  show_footer?: boolean
+  theme?: object
+  content: markdown
 ---
 
 <div class="widget card {{ theme | default: "default" }}">
