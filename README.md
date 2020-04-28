@@ -1,4 +1,4 @@
-# Liquid::Component
+# Liquid Components
 Smart components for the Liquid templating language
 
 ## Spec in progress
