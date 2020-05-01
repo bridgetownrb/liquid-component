@@ -20,8 +20,8 @@ I'm the body of the card. I support **Markdown** _formatting!_
 name: Widget Card
 description: Displays a card about a widget that you can open.
 variables:
-  title: string
-  show_footer?: boolean
+  title: "string", "The title of the card displayed in a header along the top."
+  show_footer?: boolean, "Set whether the bottom footer should be displayed."
   theme?: object
   content: markdown
 ---
