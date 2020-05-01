@@ -23,7 +23,7 @@ variables:
   title:
     - string
     - The title of the card displayed in a header along the top.
-  show_footer?: ["boolean, "Display bottom footer."]
+  show_footer?: [boolean, Display bottom footer.]
   theme?: object
   content: markdown
 ---
