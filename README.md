@@ -45,6 +45,6 @@ If a variable is supplied to a component in the wrong format, or if it's missing
 * Describe content processors (HTML, Markdown, JSON, YAML, etc.)
 * Investigate multiple "content areas" ([see github/view_component for inspiration](https://github.com/github/view_component/blob/master/README.md#content-areas))
 * How to handle sidecar assets for components (related JS and CSS files)
-  * _Interesting thought:_ what if each component rendered out as a Web Component (aka `<liquid-cards-widget>…</liquid-cards-widget>`) and then that could easily be hooked into for implementing CSS/JS frontend functionality?
+  * _Interesting thought:_ what if each component rendered out as a Web Component (aka `<liquid-cards-widget>…</liquid-cards-widget>`) and then that could easily be hooked into for implementing CSS/JS frontend functionality? Maybe make that an optional `web_component: true` setting in the front matter.
 * Testing strategy
 * Component previews
