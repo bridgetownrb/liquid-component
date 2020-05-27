@@ -3,6 +3,8 @@
 Smart components for the Liquid template language. Use YAML front matter to specify component metadata (name, description) and variable types. Use
 component metadata for validation and reflection (perhaps to build visual preview stories).
 
+_Currently under active development._
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -51,10 +53,6 @@ Here are the possible `LiquidComponent::Variable` values:
 * `type`: a symbol indicating a data type…string, boolean, array, etc.
 * `required`: `true` if the variable is required, `false` if it is optional.
 * `description`: an optional description of what the variable is for.
-
-## Testing
-
-Run `bundle exec rake` to run the test suite.
 
 ## Spec in progress
 
@@ -106,3 +104,25 @@ If a variable is supplied to a component in the wrong format, or if it's missing
   * _Interesting thought:_ what if each component rendered out as a Web Component (aka `<liquid-cards-widget>…</liquid-cards-widget>`) and then that could easily be hooked into for implementing CSS/JS frontend functionality? Maybe make that an optional `web_component: true` setting in the front matter.
 * Testing strategy
 * Component previews
+
+----
+
+## Testing
+
+Run `bundle exec rake` to run the test suite.
+
+## Development
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/bridgetownrb/liquid-component.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the Phaedra project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/bridgetownrb/liquid-component/blob/master/CODE_OF_CONDUCT.md).

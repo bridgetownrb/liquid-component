@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jared White"]
   spec.email         = ["jared@whitefusion.io"]
 
-  spec.summary       = %q{Load and parse Liquid Component templates which include front matter}
+  spec.summary       = %q{Load and parse Liquid Component templates with YAML front matter}
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/bridgetownrb/liquid-component"
   spec.license       = "MIT"
