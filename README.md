@@ -1,9 +1,64 @@
-# Liquid Components
-Smart components for the Liquid templating language
+# Liquid Component
+
+Smart components for the Liquid template language. Use YAML front matter to specify component metadata (name, description) and variable types. Use
+component metadata for validation and reflection (perhaps to build visual preview stories).
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'liquid-component'
+```
+
+And then execute:
+
+```sh
+$ bundle
+```
+
+Or install it yourself as:
+
+```sh
+$ gem install liquid-component
+```
+
+## Usage
+
+Given a Liquid template string, all you need to do is call `LiquidComponent.parse`:
+
+```ruby
+component = LiquidComponent.parse(template)
+```
+
+The return value will be a `LiquidComponent::Component` object which provides two data structures:
+
+* `metadata`: the parsed front matter as a `LiquidComponent::Metadata` object.
+* `content`: the body of the Liquid template.
+
+Even if there's no front matter, a component will successfully instantiate, but all the metadata values will be nil. The component object also provides convenience methods to get to the metadata values, so `component.name` is the same as `component.metadata.name`.
+
+Here are the possible `LiquidComponent::Metadata` values, all optional:
+
+* `name`: the human-readable name of the component.
+* `description`: a description of what the component is for.
+* `variables`: an array of `LiquidComponent::Variable` variable definitions.
+* `additional`: any additional custom YAML front matter, if any.
+
+Here are the possible `LiquidComponent::Variable` values:
+
+* `name`: the variable identifier.
+* `type`: a symbol indicating a data type…string, boolean, array, etc.
+* `required`: `true` if the variable is required, `false` if it is optional.
+* `description`: an optional description of what the variable is for.
+
+## Testing
+
+Run `bundle exec rake` to run the test suite.
 
 ## Spec in progress
 
-Working code is on its way, but meanwhile this is a quick attempt to document a possible spec for Liquid Components. It builds upon the brand new `render` tag functionality but adds block mode, Markdown formatting, and validation.
+This is a quick attempt to document a possible spec for Liquid Components. It builds upon the brand new `render` tag functionality but adds block mode, Markdown formatting, and validation.
 
 ### Example
 
@@ -23,8 +78,8 @@ variables:
   title:
     - string
     - The title of the card displayed in a header along the top.
-  show_footer?: [boolean, Display bottom footer.]
-  theme?: object
+  show_footer: [boolean, Display bottom footer.]
+  theme?: object # optional variable
   content: markdown
 ---
 
@@ -37,13 +92,14 @@ variables:
 </div>
 ```
 
-### Variable Warnings
+### Variable Warnings (TODO)
 
-If a variable is supplied to a component in the wrong format, or if it's missing when it's required, then the component parser will emit a Liquid warning. By default it won't interrupt the overall rendering of Liquid templates (but that is configurable). The goal is simply to catch errors at development time, not frustrate the process of generating a working site.
+If a variable is supplied to a component in the wrong format, or if it's missing when it's required, then the component will emit a Liquid warning. By default it won't interrupt the overall rendering of Liquid templates (but that is configurable). The goal is simply to catch errors at development time, not frustrate the process of generating a working site.
 
 ## TODO
 
 * Finish fleshing out variable types
+* Variable validation
 * Describe content processors (HTML, Markdown, JSON, YAML, etc.)
 * Investigate multiple "content areas" ([see github/view_component for inspiration](https://github.com/github/view_component/blob/master/README.md#content-areas))
 * How to handle sidecar assets for components (related JS and CSS files)

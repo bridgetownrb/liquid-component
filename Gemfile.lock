@@ -1,0 +1,49 @@
+PATH
+  remote: .
+  specs:
+    liquid-component (0.1.0)
+      activesupport (>= 5.0)
+      safe_yaml (~> 1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (6.0.3.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.2, >= 2.2.2)
+    ansi (1.5.0)
+    builder (3.2.4)
+    concurrent-ruby (1.1.6)
+    i18n (1.8.2)
+      concurrent-ruby (~> 1.0)
+    minitest (5.14.1)
+    minitest-profile (0.0.2)
+    minitest-reporters (1.4.2)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
+    rake (12.3.3)
+    ruby-progressbar (1.10.1)
+    safe_yaml (1.0.5)
+    thread_safe (0.3.6)
+    tzinfo (1.2.7)
+      thread_safe (~> 0.1)
+    zeitwerk (2.3.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler
+  liquid-component!
+  minitest (~> 5.0)
+  minitest-profile (>= 0.0.2)
+  minitest-reporters (~> 1.0)
+  rake (~> 12.0)
+
+BUNDLED WITH
+   1.17.3
