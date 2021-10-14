@@ -1,9 +1,11 @@
+**THIS IS NO LONGER BEING MAINTAINED and has been archived.**
+
+----
+
 # Liquid Component
 
 Smart components for the Liquid template language. Use YAML front matter to specify component metadata (name, description) and variable types. Use
 component metadata for validation and reflection (perhaps to build visual preview stories).
-
-_Currently under active development._
 
 ## Installation
 
